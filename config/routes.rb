@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'users#home'
 
   resources :markets, except: [:destroy] do
     resources :vendors
