@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
-  root 'users#home'
+  root 'markets#mainpage'
 
-  resources :markets, except: [:destroy] do
+  # get '/markets' => 'markets#mainpage'
+
+  get 'markets/user_all' => 'markets#user_all'
+
+  get 'markets/:id/user_show' => 'markets#user_show', as: :user_show
+
+  resources :markets do
     resources :vendors
   end
 
