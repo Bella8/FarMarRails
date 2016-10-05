@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
   def home
-    # @markets_all = Market.all
   end
+
+  def markets
+    @markets_all = Market.all
+  end
+
 end

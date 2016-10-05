@@ -1,14 +1,5 @@
 class MarketsController < ApplicationController
   def index
-    
-  end
-
-  def market
-    @market = "market"
-    # Market.all
-  end
-
-  def user
-    @market = "user"
+    @markets_all = Market.all
   end
 end

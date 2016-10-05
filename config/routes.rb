@@ -1,9 +1,20 @@
 Rails.application.routes.draw do
   root 'users#home'
 
+  get 'users' => 'users#home'
+  get 'users/markets' => 'users#markets'
+  get 'users/markets/:id' => 'users#show'
+
   resources :markets, except: [:destroy] do
     resources :vendors
   end
+
+  get 'vendors/home' => 'vendors#home'
+
+  resources :products do
+    resources :sales, only: [:new, :create, :index]
+  end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
