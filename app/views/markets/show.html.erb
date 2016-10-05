@@ -1,0 +1,19 @@
+<h1><% @market.name %></h1>
+
+<h2>Market Details</h2>
+  <ul>
+    <% @market.attributes.each do |k, v| %>
+      <li>
+        <%= "#{k.capitalize}: #{v}" %>
+      </li>
+    <% end %>
+  </ul>
+
+<h2>Market Vendors</h2>
+  <ul>
+    <% @vendors.each do |vendor| %>
+      <li>
+        <%= vendor.name %>
+      </li>
+    <% end %>
+  </ul>
