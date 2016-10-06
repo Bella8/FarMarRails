@@ -1,6 +1,10 @@
 <h1><% @market.name %></h1>
 
 <h2>Market Details</h2>
+  <% if @link == "market" %>
+  <%= link_to "Edit" %>
+  <%= link_to "Delete", market_path(@market.id), method: :delete, data: {confirm: "Are you sure?"} %>
+  <% end %>
   <ul>
     <% @market.attributes.each do |k, v| %>
       <li>
@@ -15,5 +19,6 @@
       <li>
         <%= vendor.name %>
       </li>
-    <% end %>
+
+<% end %>
   </ul>

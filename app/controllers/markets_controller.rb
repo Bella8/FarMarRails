@@ -21,18 +21,45 @@ end
     end
   end
 
+
+
   def user_all
     @markets = Market.all
     @link = "user"
     render "index"
   end
 
-  def user_show
+  def show
     id = params[:id]
     @market = Market.find(id)
     @vendors = @market.vendors
     @link = "market"
+  end
+
+  def user_show
+    id = params[:id]
+    @market = Market.find(id)
+    @vendors = @market.vendors
+    @link = "user"
     render "show"
+  end
+
+  def destroy
+    Market.find(params[:id]).destroy
+    redirect_to markets_path
+  end
+
+  def edit
+  @market = Market.find(params[:id])
+  end
+
+  def update
+    @market = Market.find(params[:id])
+      if @market.update(market_params)
+      redirect_to markets_path
+    else
+      render :edit
+    end 
   end
 
   private
