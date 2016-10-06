@@ -18,6 +18,12 @@
   </ul>
 
 <h2>Vendor Sales</h2>
+
+<% if @sales.empty? %>
+  <p>
+    <%= @vendor.name %> has no sales to date.
+  </p>
+<% else %>
   <table>
     <thead>
       <tr>
@@ -38,6 +44,7 @@
       <% end %>
     </tbody>
   </table>
+  <% end %>
 <h3>TOTAL SALES</h3>
   <p>
     <%= "ALL SALES: $#{@sales_total}" %>

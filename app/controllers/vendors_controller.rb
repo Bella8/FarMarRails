@@ -10,8 +10,10 @@ class VendorsController < ApplicationController
     @sales = sales(@products)
     @vendor_market = Market.find(@vendor.market_id).name
     @sales_total = sales_total(@sales)
-    
-    @attribute_keys = @sales.first.attributes.keys #doesn't work if no sales
+
+    if !(@sales.empty?)
+      @attribute_keys = @sales.first.attributes.keys #doesn't work if no sales
+    end
   end
 
   private
