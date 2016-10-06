@@ -13,7 +13,7 @@
   <ul>
     <% @products.each do |product| %>
       <li>
-        <%= product.name %>
+        <%= product.name %> <%= link_to "Edit", edit_vendor_product_path(params[:id], product.id) %>
       </li>
     <% end %>
   </ul>

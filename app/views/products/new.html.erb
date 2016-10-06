@@ -1,5 +1,1 @@
-<%= form_for [:vendor, @vendor_product], method: :post do |f| %>
-  <p><%= f.label :Name %>:</p>
-  <p><%= f.text_field :name %></p>
-  <p><%= f.submit "Submit" %></p>
-<% end %>
+<%= render partial: "form", locals: { product: [:vendor, @vendor_product], http_method: :post } %>
