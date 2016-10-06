@@ -1,4 +1,5 @@
 class VendorsController < ApplicationController
+
   def index
     @vendors_all = Vendor.all
   end
@@ -10,9 +11,48 @@ class VendorsController < ApplicationController
     @sales = sales(@products)
     @vendor_market = Market.find(@vendor.market_id).name
     @sales_total = sales_total(@sales)
-    
+
     @attribute_keys = @sales.first.attributes.keys #doesn't work if no sales
   end
+
+
+
+  def destroy
+      @market = Market.find(params[:market_id])
+      @vendor = Vendor.find(params[:id]).destroy
+      redirect_to market_path(@market.id)
+      # redirect_to market_path
+  end
+
+  def new_market_vendor
+    market = Market.find(params[:market_id])
+    @vendor = market.vendors.new
+  end
+
+  # def destroy
+  #   Market.find(params[:id]).destroy
+  #   redirect_to markets_path
+  # end
+  # def edit
+  # # id = params[:market_id]
+  #   market = Market.find(params[:market_id])
+  #   @vendors = market.vendors.find(params[:id])
+  # end
+
+
+  def edit
+  # id = params[:market_id]
+    @market = Market.find(params[:market_id])
+    @vendor = Vendor.find(params[:id])
+  end
+
+  def new_market_vendor
+    @market = Market.find(params[:market_id])
+    @vendor = market.vendors.new
+  end
+
+end
+
 
   private
 
@@ -37,4 +77,3 @@ class VendorsController < ApplicationController
   # def  vendor_params
   #   params.require(:vendor).permit(:name, :number_of_employees)
   # end
-end

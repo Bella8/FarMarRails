@@ -1,4 +1,6 @@
-<%= form_for @market method: :patch do |f| %>
+<%= form_for @market, method: :patch do |f| %>
+  <p><%= f.label :ID %>:</p>
+  <p><%= f.text_field :id %></p>
   <p><%= f.label :Name %>:</p>
   <p><%= f.text_field :name %></p>
   <p><%= f.label :Address %>:</p>
