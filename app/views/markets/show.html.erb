@@ -17,7 +17,7 @@
 
 <%#link_to "create a Vendor", new_market_vendor_path %>
 
-<%=link_to "create a Market", new_market_vendor_path  %>
+<%#link_to "create a Market", new_market_vendor_path  %>
 
 
 <h2>Market Vendors</h2>
@@ -25,7 +25,9 @@
     <% @vendors.each do |vendor| %>
       <li>
         <%= vendor.name %>
+        <% if @link == "market" %>
         <%= link_to "Edit", edit_market_vendor_path(vendor.market, vendor)  %>
+        <% end %>
         <% if vendor != nil %>
         <% else %>
           <%= @msg %>
