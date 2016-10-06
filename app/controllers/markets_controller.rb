@@ -21,8 +21,6 @@ end
     end
   end
 
-
-
   def user_all
     @markets = Market.all
     @link = "user"
@@ -33,6 +31,7 @@ end
     id = params[:id]
     @market = Market.find(id)
     @vendors = @market.vendors
+
     @link = "market"
   end
 
@@ -43,6 +42,39 @@ end
     @link = "user"
     render "show"
   end
+   # to use the vender edit paage to edit
+  # def edit_market_vendor
+  # # id = params[:market_id]
+  #   market = Market.find(params[:market_id])
+  #   @vendors = market.vendors.find(params[:id])
+  # end
+
+  # use the vendor new page to create new
+  # have it stop throwing errors
+  # def new_market_vendor
+  #   market = Market.find(params[:market_id])
+  #   @vendor = market.vendors.new
+  # end
+
+# to have it delete
+# have it stop throwing errors
+  # def market_vendor_destroy
+  #     market = Market.find(params[:market_id])
+  #     vendor = market.vendors.find(params[:id])
+  #     @vendor = vendor.destroy
+  #     if @vendor == nil
+  #       @msg = "vendor is nil"
+  #     end
+  #     redirect_to  market_vendor
+  # end
+
+
+
+  #
+  # def edit
+  #    @user = User.find_by(username: params[:username])
+  #  end
+
 
   def destroy
     Market.find(params[:id]).destroy
@@ -50,7 +82,7 @@ end
   end
 
   def edit
-  @market = Market.find(params[:id])
+    @market = Market.find(params[:id])
   end
 
   def update
@@ -59,7 +91,7 @@ end
       redirect_to markets_path
     else
       render :edit
-    end 
+    end
   end
 
   private

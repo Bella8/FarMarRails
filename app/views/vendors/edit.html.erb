@@ -1,0 +1,8 @@
+<%= form_for @vendor do |f| %>
+  <p><%= f.label :Name %>:</p>
+  <p><%= f.text_field :name %></p>
+  <p><%= f.label :Number_of_employees %>:</p>
+  <p><%= f.text_field :number_of_employees %></p>
+
+  <p><%= f.submit "Submit" %></p>
+<% end %>
