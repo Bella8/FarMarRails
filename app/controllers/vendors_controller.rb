@@ -19,59 +19,45 @@ class VendorsController < ApplicationController
     end
   end
 
-
-
   def destroy
       @market = Market.find(params[:market_id])
-      @vendor = Vendor.find(params[:id]).destroy
+      @vendor = Vendor.find(params[:id])
+      @vendor.destroy
       redirect_to market_path(@market.id)
-      # redirect_to market_path
   end
 
-  def new_market_vendor
-    market = Market.find(params[:market_id])
-    @vendor = market.vendors.new
+  def new
+    @market = Market.find(params[:market_id])
+    @vendor = @market.vendors.new
   end
 
-  def destroy
-    Market.find(params[:id]).destroy
-    redirect_to markets_path
+  def create
+    @market = Market.find(params[:market_id])
+    @vendor = @market.vendors.new(vendor_params)
+    if @vendor.save
+      redirect_to market_path(@market.id)
+    else
+      render :new
+    end
   end
 
   def edit
-  # id = params[:market_id]
+    @vendor = Vendor.find(params[:id])
+    @market = Market.find(params[:market_id])
+  end
+
+  def update
     @market = Market.find(params[:market_id])
     @vendor = Vendor.find(params[:id])
+      if @vendor.update(vendor_params)
+        redirect_to market_path(@market.id)
+      else
+      render :edit
+    end
   end
-
-  def new_market_vendor
-    @market = Market.find(params[:market_id])
-    @vendor = market.vendors.new
-  end
-
-end
-
 
   private
-
-  # def sales(products)
-  #   sales = []
-  #   products.each do |product|
-  #     sales += product.sales
-  #   end
-  #   return sales
-  # end
-
-  # def sales_total(sales)
-  #   total_amount = 0
-  #   sales.each do |sale|
-  #     total_amount += sale.amount
-  #   end
-  #   total_amount = total_amount/100.0
-  #   return total_amount
-  # end
-
-
-  # def  vendor_params
-  #   params.require(:vendor).permit(:name, :number_of_employees)
-  # end
+  def vendor_params
+    params.require(:vendor).permit(:name, :number_of_employees,
+    :markets => [:name, :address, :city, :county, :state, :zip])
+  end

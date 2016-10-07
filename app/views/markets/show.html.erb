@@ -2,10 +2,7 @@
 
 <h2>Market Details</h2>
   <% if @link == "market" %>
-    <%= link_to "Edit", edit_market_path  %>
-    <!-- <%# link_to "Delete", market_vendor_path(@market.id), method: :delete, data: {confirm: "Are you sure?"} %> -->
-    <%= link_to "Delete", market_vendor_path(@market, Vendor),  method: :delete, data: {confirm: "Are you sure?"} %>
-
+  <%= link_to "Edit", edit_market_path  %>
   <% end %>
   <ul>
     <% @market.attributes.each do |k, v| %>
@@ -15,22 +12,23 @@
     <% end %>
   </ul>
 
-<%#link_to "create a Vendor", new_market_vendor_path %>
-
-<%#link_to "create a Market", new_market_vendor_path  %>
-
 
 <h2>Market Vendors</h2>
   <ul>
+     <% if @link == "market" %>
+      <%=link_to "create a Vendor", new_market_vendor_path(@market.id) %>
+      <% end %>
+
     <% @vendors.each do |vendor| %>
       <li>
         <%= vendor.name %>
         <% if @link == "market" %>
         <%= link_to "Edit", edit_market_vendor_path(vendor.market, vendor)  %>
+        <%= link_to "Delete", market_vendor_path(@market, vendor),  method: :delete, data: {confirm: "Are you sure?"} %>
         <% end %>
         <% if vendor != nil %>
         <% else %>
-          <%= @msg %>
+        <%= @msg %>
         <% end %>
 
       </li>
