@@ -13,12 +13,7 @@
   <ul>
     <% @products.each do |product| %>
       <li>
-<<<<<<< HEAD
         <%= product.name %> <%= link_to "Edit", edit_vendor_product_path(params[:id], product.id) %> <%= link_to "Delete", vendor_product_path(params[:id], product.id), method: :delete, data: { confirm: "Are you sure?"} %> <%= link_to "Add Sale", new_vendor_product_sale_path(params[:id], product.id) %>
-=======
-        <%= product.name %>
-        <%= link_to "Add Sale", new_vendor_product_sale_path(product.id, @vendor.id) %>
->>>>>>> b/bk/vendor_new_delete
       </li>
     <% end %>
   </ul>

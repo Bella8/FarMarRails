@@ -61,3 +61,4 @@ class VendorsController < ApplicationController
     params.require(:vendor).permit(:name, :number_of_employees,
     :markets => [:name, :address, :city, :county, :state, :zip])
   end
+end 
