@@ -8,9 +8,11 @@ class VendorsController < ApplicationController
     id = params[:id]
     @vendor = Vendor.find(id)
     @products = @vendor.products
-    @sales = sales(@products)
+    @sales = @vendor.sales #sales(@products)
     @vendor_market = Market.find(@vendor.market_id).name
     @sales_total = sales_total(@sales)
+    @month_sales = @vendor.sales_current_month
+    @current_month_total = @vendor.current_month_total
 
     if !(@sales.empty?)
       @attribute_keys = @sales.first.attributes.keys #doesn't work if no sales
@@ -52,22 +54,22 @@ end
 
   private
 
-  def sales(products)
-    sales = []
-    products.each do |product|
-      sales += product.sales
-    end
-    return sales
-  end
+  # def sales(products)
+  #   sales = []
+  #   products.each do |product|
+  #     sales += product.sales
+  #   end
+  #   return sales
+  # end
 
-  def sales_total(sales)
-    total_amount = 0
-    sales.each do |sale|
-      total_amount += sale.amount
-    end
-    total_amount = total_amount/100.0
-    return total_amount
-  end
+  # def sales_total(sales)
+  #   total_amount = 0
+  #   sales.each do |sale|
+  #     total_amount += sale.amount
+  #   end
+  #   total_amount = total_amount/100.0
+  #   return total_amount
+  # end
 
 
   # def  vendor_params

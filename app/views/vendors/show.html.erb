@@ -13,7 +13,7 @@
   <ul>
     <% @products.each do |product| %>
       <li>
-        <%= product.name %> <%= link_to "Edit", edit_vendor_product_path(params[:id], product.id) %> <%= link_to "Delete", vendor_product_path(params[:id], product.id), method: :delete, data: { confirm: "Are you sure?"} %>
+        <%= product.name %> <%= link_to "Edit", edit_vendor_product_path(params[:id], product.id) %> <%= link_to "Delete", vendor_product_path(params[:id], product.id), method: :delete, data: { confirm: "Are you sure?"} %> <%= link_to "Add Sale", new_vendor_product_sale_path(params[:id], product.id) %>
       </li>
     <% end %>
   </ul>
@@ -25,31 +25,8 @@
     <%= @vendor.name %> has no sales to date.
   </p>
 <% else %>
-  <table>
-    <thead>
-      <tr>
-        <% @attribute_keys.each do |a| %>
-        <th><%= a.to_s %></th>
-        <% end %>
-      </tr>
-    </thead>
-    <tbody>
-      <% @sales.each do |sale| %>
-      <tr>
-        <% sale.attributes.each do |k, v| %>
-        <td>
-          <%= v %>
-        </td>
-        <% end %>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <% end %>
-<h3>TOTAL SALES</h3>
-  <p>
-    <%= "ALL SALES: $#{@sales_total}" %>
-  </p>
-  <p>
-    <%= "SALES THIS MONTH:" %>
-  </p>
+  <h3>ALL SALES</h3>
+    <%= render partial: "sales_table", locals: { sales: @sales, sales_total: @sales_total } %>
+  <h3>CURRENT MONTH SALES</h3>
+    <%= render partial: "sales_table", locals: { sales: @month_sales, sales_total: @current_month_total } %>
+<% end %>
