@@ -33,4 +33,13 @@ class Vendor < ActiveRecord::Base
   def current_month_total
     sales_total(sales_current_month)
   end
+
+  # def self.by_letter(array_of_letters)
+  #   results = []
+  #   array_of_letters.each do |letter|
+  #     letter.upcase!
+  #     results += self.where.("name like?", "#{letter}%").order(:name)
+  #   end
+  #   return results
+  # end
 end

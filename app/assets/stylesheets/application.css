@@ -36,6 +36,11 @@ body {
    top: 4vh;
  }
 
+ header h1 a {
+   text-decoration: none;
+   color: white;
+ }
+
 #main {
   background-image: url(/assets/tomatoes.jpeg);
   height: 100vh;
@@ -66,4 +71,15 @@ body {
   text-decoration: none;
   color: white;
   font-family: "Molengo";
+}
+
+h2.section-heading {
+  margin-top: 6vh;
+}
+
+.centered-list {
+  list-style: none;
+  font-family: "Molengo";
+  text-align: center;
+  padding-left: 0;
 }

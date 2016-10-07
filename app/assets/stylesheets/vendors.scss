@@ -4,11 +4,33 @@
 
 
 
-h2.page-title {
+.page-title {
   text-align: center;
   font-family: "Special Elite", cursive;
-  font-size: 1.5em;
+  font-size: 2em;
   margin: 12vh 0 6vh;
+}
+
+h1.page-title {
+  margin-bottom: 3vh;
+}
+
+.vendor-market, .section-heading {
+  font-family: "Special Elite", cursive;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.add-product {
+  list-style: none;
+  font-family: "Molengo";
+  text-align: center;
+  padding-left: 0;
+}
+
+p.vendor-details, p.market-address {
+  font-family: "Molengo";
+  text-align: center;
 }
 
 table, tr, td {

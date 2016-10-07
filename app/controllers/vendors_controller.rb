@@ -1,7 +1,9 @@
 class VendorsController < ApplicationController
 
   def index
-    @vendors_all = Vendor.all
+    @vendors_all = Vendor.all.order(:name)
+    # a_e = ["a", "b", "c", "d", "e"]
+    # @vendors_a_e = Vendor.by_letter(a_e)
   end
 
   def show
@@ -9,7 +11,9 @@ class VendorsController < ApplicationController
     @vendor = Vendor.find(id)
     @products = @vendor.products
     @sales = @vendor.sales #sales(@products)
-    @vendor_market = Market.find(@vendor.market_id).name
+    @vendor_market_object = Market.find(@vendor.market_id)
+    @vendor_market = @vendor_market_object.name
+    @full_address = @vendor_market_object.full_address
     @sales_total = @vendor.sales_total(@sales)
     @month_sales = @vendor.sales_current_month
     @current_month_total = @vendor.current_month_total
@@ -61,4 +65,4 @@ class VendorsController < ApplicationController
     params.require(:vendor).permit(:name, :number_of_employees,
     :markets => [:name, :address, :city, :county, :state, :zip])
   end
-end 
+end
