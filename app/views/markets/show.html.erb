@@ -1,12 +1,12 @@
 
 <section class ="market-info">
   <ul>
-    <li><%= @market.name %></li>
+    <h1 class="page-title"><%= @market.name %></h1>
     <% if @link == "market" %>
     <span id = "edit"><li><%= link_to "Edit Market", edit_market_path %></li></span>
     <% end %>
 
-    <li>
+    <li class="market-address" >
       <%= @market.address %>,
       <%= @market.city %>,
       <%= @market.state %>,
@@ -17,14 +17,14 @@
 
 <article class="market-vendors">
 
- <h3>List of Vendors</h3>
+ <h2 class="section-heading">List of Vendors</h2>
   <ul>
     <% if @link == "market" %>
-  <li><%= link_to "create a Vendor", new_market_vendor_path(@market.id) %></li> 
+  <li class="add-product" ><%= link_to "Add Vendor", new_market_vendor_path(@market.id) %></li>
     <% end %>
 
     <% @vendors.each do |vendor| %>
-      <li>
+      <li class="centered-list">
         <%= vendor.name %>
         <% if @link == "market" %>
         <%= link_to "Edit", edit_market_vendor_path(vendor.market, vendor)  %>

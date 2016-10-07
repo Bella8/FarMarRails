@@ -1,10 +1,6 @@
+<h2 class="page-title">Pick Your Market</h2>
 
-
-   <h1 class="market-heaher">Pick Your Market</h1>
-
-
-<section class="market-list">
-   <ul>
+<ul class="centered-list">
    <% if @link == 'market' %>
         <div class="create-market"><li><%= link_to "Create a Market", new_market_path %></li></div>
         <% @markets.each do |market| %>
@@ -15,5 +11,4 @@
          <li> <%= link_to market.name, user_show_path(market.id) %></li>
          <% end %>
    <% end %>
-   </ul>
-</section>
+</ul>
