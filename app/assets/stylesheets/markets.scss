@@ -1,3 +1,43 @@
-// Place all the styles related to the Markets controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.market-heaher {
+  text-align: center;
+}
+
+.market-info li:first-child {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  // font-family:
+}
+.market-list ul {
+  text-align: center;
+  list-style-type: none;
+}
+
+.create-market {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.market-info {
+  text-align: center;
+}
+
+.market-info ul {
+  list-style-type: none;
+}
+
+#edit {
+  margin-bottom: 20px;
+}
+
+.market-vendors ul {
+  list-style-type: none;
+}
+
+.market-vendors {
+  text-align: center;
+}
+
+.market-vendors li:first-child {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
