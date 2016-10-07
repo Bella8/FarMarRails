@@ -15,14 +15,16 @@
     <% end %>
   </ul>
 
-<h2 class="section-heading">Sales</h2>
-<% if @sales.empty? %>
+<section class="sales_tables">  
+  <h2 class="section-heading">Sales</h2>
+  <% if @sales.empty? %>
   <p>
     <%= @vendor.name %> has no sales to date.
   </p>
-<% else %>
+  <% else %>
   <h3>ALL SALES</h3>
-    <%= render partial: "sales_table", locals: { sales: @sales, sales_total: @sales_total } %>
+  <%= render partial: "sales_table", locals: { sales: @sales, sales_total: @sales_total } %>
   <h3>CURRENT MONTH SALES</h3>
-    <%= render partial: "sales_table", locals: { sales: @month_sales, sales_total: @current_month_total } %>
-<% end %>
+  <%= render partial: "sales_table", locals: { sales: @month_sales, sales_total: @current_month_total } %>
+  <% end %>
+</section>

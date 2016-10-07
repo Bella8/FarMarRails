@@ -35,4 +35,12 @@ p.vendor-details, p.market-address {
 
 table, tr, td {
   border: 1px solid black;
+  width: 80vw;
+  text-align: center;
+}
+
+.sales_tables {
+  margin: 5vh auto;
+  width: 80vw;
+  font-family: "Molengo", sans-serif;
 }
