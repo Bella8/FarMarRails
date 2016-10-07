@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :products do
       resources :sales
     end
-  end 
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -14,12 +14,12 @@
     <% @products.each do |product| %>
       <li>
         <%= product.name %>
+        <%= link_to "Add Sale", new_vendor_product_sale_path(product.id, @vendor.id) %>
       </li>
     <% end %>
   </ul>
 
 <h2>Vendor Sales</h2>
-
 <% if @sales.empty? %>
   <p>
     <%= @vendor.name %> has no sales to date.
