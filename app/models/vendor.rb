@@ -16,7 +16,7 @@ class Vendor < ActiveRecord::Base
       total_amount += sale.amount
     end
     total_amount = total_amount/100.0
-    return total_amount
+    return sprintf "%.2f", total_amount
   end
 
   def sales_current_month

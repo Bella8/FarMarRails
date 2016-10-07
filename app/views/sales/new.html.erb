@@ -1,4 +1,8 @@
-<%= form_for @sale, url: {action: "create"} do |f| %>
+
+<section class="centered-list">
+  <h1 class="page-title"><%= @product.name %></h1>
+  <h2 class="section-heading">Add New Sale</h1>  
+  <%= form_for @sale, url: {action: "create"} do |f| %>
   <p><%= f.label :Amount %>:</p>
   <p><%= f.number_field :amount, required: true %></p>
 
@@ -6,4 +10,5 @@
   <p><%= f.datetime_local_field :purchase_time, required: true %></p>
 
   <p><%= f.submit "Submit" %></p>
-<% end %>
+  <% end %>
+</section>
