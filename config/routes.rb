@@ -7,13 +7,13 @@ Rails.application.routes.draw do
 
   get 'markets/:id/user_show' => 'markets#user_show', as: :user_show
 
-  resources :markets do
-    resources :vendors
+  resources :markets, except: [:destroy] do
+    resources :vendors, except: [:show]
   end
 
   resources :vendors do
-    resources :products do
-      resources :sales
+    resources :products, except: [:index, :show] do
+      resources :sales, except: [:index, :show, :destroy]
     end
   end
 
