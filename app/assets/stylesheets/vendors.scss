@@ -1,6 +1,16 @@
 // Place all the styles related to the Vendors controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+h2.page-title {
+  text-align: center;
+  font-family: "Special Elite", cursive;
+  font-size: 1.5em;
+  margin: 12vh 0 6vh;
+}
+
 table, tr, td {
   border: 1px solid black;
 }

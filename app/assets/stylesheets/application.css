@@ -16,6 +16,26 @@
 body {
    margin: 0;
  }
+
+ header {
+   background-image: url(/assets/tomatoes.jpeg);
+   height: 15vh;
+   width: 100vw;
+   background-size: cover;
+   margin: 0;
+   background-position: center center;
+   text-align: center;
+   color: white;
+   font-family: "Special Elite", cursive;
+   font-size: 2em;
+ }
+
+ header h1 {
+   margin: 0;
+   position: relative;
+   top: 4vh;
+ }
+
 #main {
   background-image: url(/assets/tomatoes.jpeg);
   height: 100vh;
