@@ -10,7 +10,7 @@ class VendorsController < ApplicationController
     @products = @vendor.products
     @sales = @vendor.sales #sales(@products)
     @vendor_market = Market.find(@vendor.market_id).name
-    @sales_total = sales_total(@sales)
+    @sales_total = @vendor.sales_total(@sales)
     @month_sales = @vendor.sales_current_month
     @current_month_total = @vendor.current_month_total
 
