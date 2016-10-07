@@ -1,23 +1,27 @@
-<h1><% @market.name %></h1>
 
-<h2>Market Details</h2>
-  <% if @link == "market" %>
-  <%= link_to "Edit", edit_market_path  %>
-  <% end %>
+<section class ="market-info">
   <ul>
-    <% @market.attributes.each do |k, v| %>
-      <li>
-        <%= "#{k.capitalize}: #{v}" %>
-      </li>
+    <li><%= @market.name %></li>
+    <% if @link == "market" %>
+    <span id = "edit"><li><%= link_to "Edit Market", edit_market_path %></li></span>
     <% end %>
+
+    <li>
+      <%= @market.address %>,
+      <%= @market.city %>,
+      <%= @market.state %>,
+      <%= @market.zip %>
+    </li>
   </ul>
+</section>
 
+<article class="market-vendors">
 
-<h2>Market Vendors</h2>
+ <h3>List of Vendors</h3>
   <ul>
-     <% if @link == "market" %>
-      <%=link_to "create a Vendor", new_market_vendor_path(@market.id) %>
-      <% end %>
+    <% if @link == "market" %>
+  <li><%= link_to "create a Vendor", new_market_vendor_path(@market.id) %></li> 
+    <% end %>
 
     <% @vendors.each do |vendor| %>
       <li>
@@ -30,7 +34,7 @@
         <% else %>
         <%= @msg %>
         <% end %>
-
       </li>
-<% end %>
+    <% end %>
   </ul>
+</article>
