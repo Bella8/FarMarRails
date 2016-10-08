@@ -1,3 +1,6 @@
+
+
+<section class="centered-list">
 <%= form_for @vendor, url: {action: "create"} do |f| %>
   <p><%= f.label :Name %>:</p>
   <p><%= f.text_field :name %></p>
@@ -5,3 +8,4 @@
   <p><%= f.text_field :number_of_employees %></p>
   <p><%= f.submit "Submit" %></p>
 <% end %>
+</section>

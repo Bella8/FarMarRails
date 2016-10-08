@@ -1,6 +1,5 @@
+<section class="centered-list">
 <%= form_for @market, method: :patch do |f| %>
-  <p><%= f.label :ID %>:</p>
-  <p><%= f.text_field :id %></p>
   <p><%= f.label :Name %>:</p>
   <p><%= f.text_field :name %></p>
   <p><%= f.label :Address %>:</p>
@@ -15,3 +14,4 @@
   <p><%= f.text_field :zip %></p>
   <p><%= f.submit "Submit" %></p>
 <% end %>
+</section>
